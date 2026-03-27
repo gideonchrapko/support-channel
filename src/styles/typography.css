@@ -1,0 +1,124 @@
+/* ─── Typography ────────────────────────────────────────────────────────────
+   Apply to any element — decoupled from the heading tag used in markup.
+   Scale: h1 → step-6, h2 → step-5 … h6 → step-1
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* ── Typography — families ── */
+  --font-sans: "Aspekta", system-ui, -apple-system, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", monospace;
+
+  /* ── Typography — modular scale (mobile) ── */
+  --fs-base: 1rem; /* 16px */
+  --ratio: 1.2; /* Minor Third */
+
+  --step--2: calc(var(--fs-base) / (var(--ratio) * var(--ratio)));
+  --step--1: calc(var(--fs-base) / var(--ratio));
+  --step-0: var(--fs-base);
+  --step-0h: calc(var(--fs-base) * 1.0954); /* sqrt(1.2) — half step */
+  --step-1: calc(var(--fs-base) * var(--ratio));
+  --step-2: calc(var(--step-1) * var(--ratio));
+  --step-3: calc(var(--step-2) * var(--ratio));
+  --step-4: calc(var(--step-3) * var(--ratio));
+  --step-5: calc(var(--step-4) * var(--ratio));
+  --step-6: calc(var(--step-5) * var(--ratio));
+
+  /* ── Typography — line heights ── */
+  --lh-body: 1.45;
+  --lh-heading: 1.2;
+  --lh-tag: 1;
+
+  /* ── Typography — tracking ── */
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0.01em;
+  --tracking-wide: 0.08em;
+
+  /* ── Typography — weights ── */
+  --fw-normal: 450;
+  --fw-medium: 500;
+  --fw-semibold: 550;
+  --fw-bold: 600;
+  --fw-body: 450;
+  --fw-heading: 550;
+}
+
+/* ── Typography — modular scale (desktop) ── */
+@media (min-width: 64rem) {
+  :root {
+    --fs-base: 1.0625rem; /* 17px */
+    --ratio: 1.25;
+  }
+}
+
+.heading-h1 {
+  font-size: clamp(var(--step-6), 5vw, 5.25rem);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.heading-h2 {
+  font-size: var(--step-5);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.heading-h3 {
+  font-size: var(--step-4);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-h4 {
+  font-size: var(--step-3);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+}
+
+.heading-h5 {
+  font-size: var(--step-2);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-medium);
+}
+
+.heading-h6 {
+  font-size: var(--step-1);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-normal);
+}
+
+.text-lg {
+  font-size: var(--step-0h);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+.text-base {
+  font-size: var(--step-0);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-normal);
+}
+
+.text-sm {
+  font-size: var(--step--1);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-normal);
+}
+
+.text-xs {
+  font-size: var(--step--2);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-normal);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-tag);
+}

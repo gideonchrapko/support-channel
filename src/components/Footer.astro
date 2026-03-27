@@ -1,0 +1,198 @@
+---
+const footerLinks = {
+  product: [
+    { name: "Studio", href: "https://botpress.com/docs/studio/introduction" },
+    { name: "ADK", href: "https://botpress.com/docs/adk/introduction" },
+    { name: "Managed Plan", href: "https://botpress.com/pricing#managed" },
+    { name: "Pricing", href: "https://botpress.com/pricing" },
+  ],
+  resources: [
+    { name: "Documentation", href: "https://botpress.com/docs" },
+    { name: "Community", href: "https://discord.com/invite/botpress?ajs_aid=%24device%3Adc4d120f-897a-42eb-a474-79a3e93fb426" },
+    { name: "Blog", href: "https://botpress.com/blog" },
+    { name: "Changelog", href: "https://botpress.com/docs/changelog" },
+  ],
+  company: [
+    { name: "About", href: "#about" },
+    { name: "Careers", href: "https://botpress.com/careers" },
+    {
+      name: "Contact",
+      href: "https://botpress.com/contact-us?utm_source=support-channel&utm_medium=footer",
+    },
+    { name: "Partners", href: "https://botpress.com/partners" },
+  ],
+  legal: [
+    { name: "Privacy", href: "https://botpress.com/legal/privacy-statement" },
+    { name: "Legal", href: "https://botpress.com/legal" },
+  ],
+};
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" aria-label="Botpress">
+        <img
+          src="/botpress-logo-dark.svg"
+          alt="Botpress"
+          class="footer-logo"
+        />
+      </a>
+      <p class="text-sm footer-tagline">
+        The AI agent platform for business workflows.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h3 class="footer-col-title">Product</h3>
+        <ul class="footer-list">
+          {
+            footerLinks.product.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col-title">Resources</h3>
+        <ul class="footer-list">
+          {
+            footerLinks.resources.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col-title">Company</h3>
+        <ul class="footer-list">
+          {
+            footerLinks.company.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="footer-col-title">Legal</h3>
+        <ul class="footer-list">
+          {
+            footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="text-xs footer-copy">
+        &copy; {new Date().getFullYear()} Botpress. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-neutral);
+    padding-top: var(--space-16);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: var(--space-12);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 48rem) {
+    .footer-inner {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-16);
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .footer-logo {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .footer-tagline {
+    color: var(--color-text-muted);
+    max-width: 28ch;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 40rem) {
+    .footer-links {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-col-title {
+    font-size: var(--step--2);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-link {
+    font-size: var(--step--1);
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast) var(--ease-out);
+  }
+
+  .footer-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-12);
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--color-border-neutral);
+  }
+
+  .footer-copy {
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+</style>

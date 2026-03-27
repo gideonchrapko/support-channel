@@ -1,0 +1,54 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<section class="cta section">
+  <div class="container container--narrow cta-inner">
+    <h2 class="heading-h2 cta-heading">Ready to build your AI agent?</h2>
+    <p class="text-lg cta-body">
+      Get in touch with our team to learn how Botpress can transform your
+      business workflows.
+    </p>
+    <Button
+      href="https://botpress.com/contact-us?utm_source=support-channel&utm_medium=referral"
+      arrow
+      class="cta-btn"
+    >
+      Contact Sales
+    </Button>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background: var(--forest-800);
+    border-top: 1px solid var(--forest-700);
+  }
+
+  .cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .cta-heading {
+    color: var(--forest-50);
+  }
+
+  .cta-body {
+    max-width: 52ch;
+    color: var(--forest-300);
+  }
+
+  /* Invert the button for the dark forest background */
+  .cta :global(.cta-btn.btn--primary) {
+    background: var(--forest-50);
+    color: var(--forest-900);
+  }
+
+  .cta :global(.cta-btn.btn--primary:hover) {
+    background: var(--forest-200);
+  }
+</style>

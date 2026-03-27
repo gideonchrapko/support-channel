@@ -1,0 +1,70 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<section class="hero section">
+  <div class="container hero-inner">
+    <p class="eyebrow text-sm hero-eyebrow">AI agent platform</p>
+    <h1 class="heading-h1 hero-heading">Build and deploy <span class="hl">AI agents</span></h1>
+    <p class="text-lg hero-body">
+      No matter your technical expertise, you can launch an AI agent with
+      Botpress
+    </p>
+    <div class="hero-actions">
+      <Button
+        href="https://botpress.com/contact-us?utm_source=support-channel&utm_medium=referral"
+        arrow
+      >
+        Contact Sales
+      </Button>
+      <Button href="#products" variant="secondary">Explore Products</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: calc(4rem + var(--section-pad-default));
+    text-align: center;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .hero-eyebrow {
+    color: var(--color-text-muted);
+  }
+
+  .hero-heading {
+    max-width: 18ch;
+    color: var(--color-text-primary);
+  }
+
+  .hl {
+    color: var(--color-highlight);
+  }
+
+  .hero-body {
+    max-width: 42ch;
+    color: var(--color-text-secondary);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .heading-h1 {
+    h2 {
+      
+    }
+  }
+</style>

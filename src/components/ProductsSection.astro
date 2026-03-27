@@ -1,0 +1,156 @@
+---
+import LinkCTA from "./ui/LinkCTA.astro";
+
+const products = [
+  {
+    title: "Botpress Studio",
+    description:
+      "A development environment for designing, testing, and deploying AI agents.",
+    icon: "→",
+    features: ["Visual flow builder", "Real-time testing", "One-click deployment"],
+    link: "https://botpress.com/docs/studio/introduction"
+  },
+  {
+    title: "Botpress ADK",
+    description:
+      "A toolkit for extending and integrating AI agents with external systems and custom logic.",
+    icon: "✦",
+    features: ["Custom integrations", "API access", "Plugin ecosystem"],
+    link: "https://botpress.com/docs/adk/introduction"
+  },
+  {
+    title: "Managed Plan",
+    description:
+      "Hosted and scalable deployment for running AI agents in production.",
+    icon: "◆",
+    features: ["Auto-scaling", "99.9% uptime SLA", "Enterprise support"],
+    link: "https://botpress.com/pricing#managed"
+  },
+];
+---
+
+<section id="products" class="products section">
+  <div class="container">
+    <div class="products-header">
+      <p class="eyebrow text-sm products-eyebrow">Offerings</p>
+      <h2 class="heading-h2">SaaS Product Offerings</h2>
+    </div>
+
+    <div class="products-grid">
+      {
+        products.map((product) => (
+          <div class="product-card">
+            <div class="product-icon">{product.icon}</div>
+            <h3 class="heading-h4 product-title">{product.title}</h3>
+            <p class="text-sm product-desc">{product.description}</p>
+            <ul class="product-features">
+              {product.features.map((feature) => (
+                <li class="product-feature text-sm">{feature}</li>
+              ))}
+            </ul>
+            <LinkCTA href={product.link}>Learn more</LinkCTA>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    background: var(--color-bg-page);
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .products-eyebrow {
+    color: var(--color-text-muted);
+  }
+
+  .products-desc {
+    max-width: 52ch;
+    color: var(--color-text-secondary);
+  }
+
+  .products-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 40rem) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    background: var(--color-bg-surface);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-neutral);
+    transition:
+      box-shadow var(--transition-fast) var(--ease-out),
+      border-color var(--transition-fast) var(--ease-out);
+  }
+
+  .product-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-accent);
+  }
+
+  .product-icon {
+    font-size: var(--step-2);
+    color: var(--color-highlight);
+    line-height: 1;
+  }
+
+  .product-title {
+    color: var(--color-text-primary);
+  }
+
+  .product-desc {
+    color: var(--color-text-secondary);
+    flex: 1;
+  }
+
+  .product-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .product-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-secondary);
+  }
+
+  .product-feature::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: var(--radius-full);
+    background: var(--color-highlight-soft);
+    flex-shrink: 0;
+  }
+</style>

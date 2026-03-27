@@ -1,0 +1,159 @@
+---
+// src/components/ui/LinkCTA.astro
+import ArrowRight from "./icons/ArrowRight.astro";
+
+interface Props {
+  /** Renders as <a> when provided; otherwise <button>. */
+  href?: string;
+  target?: string;
+  rel?: string;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  target,
+  rel: relProp,
+  disabled = false,
+  class: className,
+} = Astro.props;
+
+const classes = ["link-cta", className].filter(Boolean).join(" ");
+
+const rel =
+  href && target === "_blank" ? (relProp ?? "noopener noreferrer") : relProp;
+---
+
+{
+  href ? (
+    <a
+      class={classes}
+      href={disabled ? undefined : href}
+      target={target}
+      rel={rel}
+      aria-disabled={disabled ? "true" : undefined}
+      tabindex={disabled ? -1 : undefined}
+    >
+      <slot />
+      <span class="btn-arrow" aria-hidden="true">
+        <span class="btn-arrow__icon">
+          <ArrowRight size={16} />
+        </span>
+        <span class="btn-arrow__icon">
+          <ArrowRight size={16} />
+        </span>
+      </span>
+    </a>
+  ) : (
+    <button
+      class={classes}
+      type="button"
+      disabled={disabled || undefined}
+      aria-disabled={disabled ? "true" : undefined}
+    >
+      <slot />
+      <span class="btn-arrow" aria-hidden="true">
+        <span class="btn-arrow__icon">
+          <ArrowRight size={16} />
+        </span>
+        <span class="btn-arrow__icon">
+          <ArrowRight size={16} />
+        </span>
+      </span>
+    </button>
+  )
+}
+
+<style>
+  /* ─── Link CTA ── */
+
+  .link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: var(--step--1);
+    font-style: normal;
+    font-weight: var(--fw-medium);
+    line-height: 1;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding-block: var(--space-1);
+    cursor: pointer;
+    transition: color var(--transition-fast) var(--ease-out);
+  }
+
+  .link-cta:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  .link-cta:focus-visible {
+    outline: 2px solid var(--color-link, var(--sky-700));
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  .link-cta[aria-disabled="true"] {
+    opacity: 0.38;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /* ─── Arrow wrapper ── */
+
+  .btn-arrow {
+    color: var(--color-highlight);
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .btn-arrow__icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 200ms var(--ease-out);
+  }
+
+  .btn-arrow__icon:last-child {
+    transform: translateX(-100%);
+  }
+
+  .link-cta:hover .btn-arrow__icon:first-child {
+    transform: translateX(105%);
+  }
+
+  .link-cta:hover .btn-arrow__icon:last-child {
+    transform: translateX(0);
+  }
+
+  /* ─── Reduced motion ── */
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-arrow__icon {
+      transition: opacity var(--transition-fast);
+      transform: none !important;
+    }
+
+    .btn-arrow__icon:last-child {
+      opacity: 0;
+    }
+
+    .link-cta:hover .btn-arrow__icon:first-child {
+      opacity: 0.5;
+    }
+
+    .link-cta:hover .btn-arrow__icon:last-child {
+      opacity: 0;
+    }
+  }
+</style>

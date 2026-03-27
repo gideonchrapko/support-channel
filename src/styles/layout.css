@@ -1,0 +1,70 @@
+/* ─── Layout utilities ──────────────────────────────────────────────────────
+   .section   — vertical rhythm via padding-block
+   .container — centered max-width wrapper with inline padding
+   .stack     — vertical flex flow; override gap with --stack-gap
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* ── Spacing (mobile) ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── Spacing (desktop) ── */
+  @media (min-width: 64rem) {
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 1.75rem;
+    --space-8: 2.5rem;
+    --space-10: 3rem;
+    --space-12: 4rem;
+    --space-16: 5.5rem;
+    --space-20: 7rem;
+    --space-24: 9rem;
+  }
+
+  /* defaults */
+  --section-pad-default: clamp(2.5rem, 5vw, 5.5rem);
+  --stack-gap-default: clamp(1rem, 2vw, 2.5rem);
+
+  /* ── Layout ── */
+  --container-narrow: 60rem;
+  --container-default: 75rem;
+  --container-wide: 90rem;
+}
+
+.section {
+  padding-block: var(--section-pad, var(--section-pad-default));
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-default);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 1.2rem);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, var(--stack-gap-default));
+}

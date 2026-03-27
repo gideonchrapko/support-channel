@@ -1,0 +1,149 @@
+/* ─── Design Tokens ────────────────────────────────────────────────────────
+   Raw primitives consumed by component styles.
+   Nothing here should reference semantic vars.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Colors ── */
+  /* Neutral */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a1a1a1;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+
+  /* Accent */
+  --earth-50: #faf5f2;
+  --earth-100: #f4e9e0;
+  --earth-200: #e7d1c1;
+  --earth-300: #d8b399;
+  --earth-400: #c88f6f;
+  --earth-500: #bc7453;
+  --earth-600: #a35b43;
+  --earth-700: #914d3d;
+  --earth-800: #754037;
+  --earth-900: #60362e;
+  --earth-950: #331a17;
+
+  /* Secondary (Link-water) */
+  --secondary-50: #f4f7fa;
+  --secondary-100: #e6ecf3;
+  --secondary-200: #cedbe9;
+  --secondary-300: #b3c9dd;
+  --secondary-400: #8faccb;
+  --secondary-500: #7493bd;
+  --secondary-600: #617caf;
+  --secondary-700: #566c9f;
+  --secondary-800: #4a5983;
+  --secondary-900: #3f4c69;
+  --secondary-950: #2a3041;
+
+  /* Primary */
+  --forest-50: #f6f8f5;
+  --forest-100: #eaf0e8;
+  --forest-200: #d4e1d1;
+  --forest-300: #b2c9ac;
+  --forest-400: #88a880;
+  --forest-500: #67895e;
+  --forest-600: #506d48;
+  --forest-700: #42593c;
+  --forest-800: #374833;
+  --forest-900: #2e3c2b;
+  --forest-950: #151f14;
+
+  /* Sky */
+  --sky-50: #f4f7fa;
+  --sky-100: #e6ecf3;
+  --sky-200: #cedbe9;
+  --sky-300: #b3c9dd;
+  --sky-400: #8faccb;
+  --sky-500: #7493bd;
+  --sky-600: #617caf;
+  --sky-700: #566c9f;
+  --sky-800: #4a5983;
+  --sky-900: #3f4c69;
+  --sky-950: #2a3041;
+
+  /* Links */
+  --color-link: var(--sky-700);
+
+  /* Backgrounds */
+  --color-bg-page: var(--neutral-50);
+  --color-bg-surface: var(--neutral-100);
+  --color-bg-subtle: var(--earth-100);
+
+  /* Text */
+  --color-text-primary: var(--neutral-950);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-muted: var(--neutral-500);
+
+  /* Highlight */
+  --color-highlight: var(--earth-600);
+  --color-highlight-soft: var(--earth-300);
+
+  /* Borders */
+  --color-border-neutral: var(--neutral-400);
+  --color-border-accent: var(--earth-400);
+
+  /* Dark palette */
+  --color-dark-bg: #0f0f0f;
+  --color-dark-surface: #1a1a1a;
+  --color-dark-surface-hover: #242424;
+  --color-dark-border: #2a2a2a;
+  --color-dark-muted: #888;
+
+  /* Aliases used by Button.astro */
+  --foreground: var(--color-text-primary);
+  --background: var(--color-bg-page);
+
+  /* ── Radius ── */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-button-large: 14px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+  --radius-full: 9999px;
+
+  /* ── Shadow ── */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+  --shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.06), 0 8px 10px -6px rgb(0 0 0 / 0.03);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.12);
+
+  /* ── Transitions ── */
+  --transition-fast: 400ms;
+  --transition-normal: 500ms;
+  --transition-slow: 600ms;
+  --ease-default: ease;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Buttons (mobile) ── */
+  --btn-height: 2.75rem;
+  --btn-pad-x: 1rem;
+  --btn-height-sm: var(--space-8);
+  --btn-pad-x-sm: var(--space-3);
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --btn-height: 3rem;
+    --btn-pad-x: 1.25rem;
+  }
+}
